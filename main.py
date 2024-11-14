@@ -8,4 +8,4 @@ app.include_router(routers)
 
 @app.get("/")
 async def hello() -> dict[str, str]:
-    return {"Hello": "World"}
+    return {"Hello": "from Wakana Quizz API"}

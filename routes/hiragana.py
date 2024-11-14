@@ -7,9 +7,8 @@ router: APIRouter = APIRouter(prefix="/hiragana", tags=["Hiragana"])
 
 hiraKey = None
 
-
 # Generate Hiragana
-def generate_hiragana() -> str:
+def generate_hiragana() -> tuple[str, str]:
     f = open("./src/hiragana.json")
     data = json.load(f)
     hiraKey, hiraVal = random.choice(list(data.items()))
