@@ -1,0 +1,26 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.git/
+**_cache**
+
+# Virtual environments
+.venv
+env
+venv
+*.pyc
+.vscode
+set-env.sh
+attachments/*.*
+.env
+docker-compose.yml
+storage/
+.idea/
+.*_cache
+**__pycache__**
+.zed
+*.log
