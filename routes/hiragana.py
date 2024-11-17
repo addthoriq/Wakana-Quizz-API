@@ -1,32 +1,33 @@
 from fastapi import APIRouter
-from schemas.hiragana import CheckHiragana
+from src.hiragana import hira_std, hira_tenmaru, hira_yoon, hiraganas
 import random
-import json
 
-router: APIRouter = APIRouter(prefix="/hiragana", tags=["Hiragana"])
+router: APIRouter = APIRouter(prefix="/hiragana", tags=["Hiragana Letter's"])
 
 hiraKey = None
 
+
 # Generate Hiragana
-def generate_hiragana() -> tuple[str, str]:
-    f = open("./src/hiragana.json")
-    data = json.load(f)
+def generate_hiragana(data: dict[str, str]) -> tuple[str, str]:
     hiraKey, hiraVal = random.choice(list(data.items()))
     return hiraKey, hiraVal
 
 
 @router.get("/")
-async def get_hiragana() -> str:
-    global hiraKey
-    hiraKey, hiraVal = generate_hiragana()
-    return hiraVal
+async def get_all_hiragana():
+    return hiraganas
 
 
-@router.post("/")
-async def check_hiragana(input: CheckHiragana) -> bool:
-    global hiraKey
-    input_hira = input.key_input
-    if input_hira == hiraKey:
-        return True
-    else:
-        return False
+@router.get("/standart")
+async def get_hiragana_standart():
+    return hira_std
+
+
+@router.get("/tenten-maru")
+async def get_hiragana_tenten_maru():
+    return hira_tenmaru
+
+
+@router.get("/yoon")
+async def get_hiragana_yoon():
+    return hira_yoon
