@@ -6,7 +6,9 @@ description = "A simple API for learn Hiragana and Katakana"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "beautifulsoup4>=4.12.3",
     "fastapi[standard]>=0.115.5",
     "mypy>=1.13.0",
+    "requests>=2.32.3",
     "ruff>=0.7.3",
 ]
